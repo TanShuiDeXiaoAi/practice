@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            width: 1400px;
+        }
+
+        .divLeft {
+            float: left;
+            margin-top: 0px;
+        }
+
+        .divLeft:hover {
+            cursor: default;
+        }
+
+        .divRight {
+            float: right;
+            margin-top: 0px;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        .liLeft {
+            margin-left: 15px;
+            font-size: 20px;
+        }
+
+        .liRight {
+            margin-right: 35px;
+            font-size: 20px;
+        }
+
+        #liRight {
+
+            width: 60px;
+            height: 30px;
+            display: inline;
+            background-color: blue;
+            color: white;
+            border-style: none;
+            border-radius: 8px;
+            font-size: 20px;
+        }
+
+        #baiduLogo {
+            width: 540px;
+            height: 258px;
+            text-align: center;
+            margin: auto;
+        }
+
+        #inputMain {
+            text-align: center;
+        }
+
+        #input {
+            width: 650px;
+            height: 45px;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            border-color: #C4C7CE;
+            border-style: solid;
+            border-width: 3px;
+            font-size: 20px;
+        }
+
+        #search {
+            width: 100px;
+            height: 53px;
+            color: white;
+            background-color: #4E6EF2;
+            border-style: none;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            font-size: 18px;
+            text-align: center;
+            margin-left: -7px;
+        }
+
+        #divBottom {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+
+        #search:hover {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#more").click(function () {
+                alert("本页面由\"贪睡的小爱\"制作")
+            })
+            $("#search").click(function () {
+                var inputVal = $("#input").val()
+                if (inputVal == "") window.location.href = "百度首页.html"
+            })
+            $("#input").click(function () {
+                $(this).css("border-color", "#4E6EF2")
+
+            })
+            $("#liRight").click(function () {
+                alert("暂无此功能!")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="divLeft">
+        <ul>
+            <li class="liLeft">新闻</li>
+            <li class="liLeft">hao123</li>
+            <li class="liLeft">地图</li>
+            <li class="liLeft">贴吧</li>
+            <li class="liLeft">视频</li>
+            <li class="liLeft">图片</li>
+            <li class="liLeft">网盘</li>
+            <li class="liLeft" id="more">更多</li>
+        </ul>
+    </div>
+    <div class="divRight">
+        <ul>
+            <li class="liRight">设置</li>
+            <li class="liRight"><button id="liRight">登录</button></li>
+        </ul>
+    </div>
+    <div id="baiduLogo">
+        <img src="../image/baiduLogo.png" width="440" height="200"
+            onclick="javascript:window.location.href = '百度首页.html'">
+    </div>
+    <br>
+    <div id="inputMain">
+        <input type="text" id="input">
+        <input type="text" value="百度一下" id="search">
+    </div>
+</body>
+
+</html>

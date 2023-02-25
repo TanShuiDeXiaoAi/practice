@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>计数器</title>
+    <style>
+        #num {
+            text-align: center;
+            width: 5%;
+
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#sub").click(function() {
+                //判断#num的值是不是NaN
+                if (isNaN($("#num").val())) {
+                    //如果是NaN，弹出提示框
+                    alert("内容应为整数")
+
+                } else {
+                    //获取#num的值并将其-1
+                    //patseInt方法解析字符串并返回整数
+
+                    $("#num").val(parseInt($("#num").val()) - 1);
+                }
+            })
+            $("#add").click(function() {
+                if (isNaN($("#num").val())) {
+                    alert("内容应为整数")
+                } else {
+                    //解析字符串并返回整数
+                    $("#num").val(parseInt($("#num").val()) + 1);
+                }
+            })
+            $("#clean").click(function() {
+                $("#num").val(0);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" value="-1" id="sub">
+    <input value="0" id="num">
+    <input type="button" value="+1" id="add">
+    <input type="button" value="清空" id="clean">
+
+</body>
+
+</html>

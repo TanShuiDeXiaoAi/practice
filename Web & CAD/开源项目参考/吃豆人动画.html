@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>吃豆人</title>
+      <style>
+          *{
+              margin: 0;
+          }
+          .box{
+              width: 400px;
+              height: 400px;
+              margin: 100px auto;
+          }
+          .pic-man{
+              width:200px;
+              height: 200px;
+              margin-top: 100px;
+              border-radius: 50%;
+              animation: run 0.8s linear infinite;
+          }
+
+          .pic-man:before{
+              display: block;
+              content: "";
+              width: 200px;
+              height: 100px;
+              margin-left: 80px;
+              border-radius:100px 100px 0 0;
+              transform: rotate(-45deg);
+              background-color: blue;
+              animation: move1 0.8s linear infinite;
+          }
+          .pic-man:after{
+              display: block;
+              content: "";
+              width: 200px;
+              height: 100px;
+              margin-left: 80px;
+              border-radius: 0 0 100px 100px;
+              transform: rotate(45deg);
+              background-color: blue;
+              animation: move2 0.8s linear infinite;
+          }
+          @keyframes run{
+              0%{
+              box-shadow: 200px 0 0 -75px yellow,
+                          350px 0 0 -75px yellow,
+                          500px 0 0 -75px yellow,
+                          650px 0 0 -75px yellow,
+                          800px 0 0 -75px yellow;
+              }
+              100%{
+              box-shadow: 50px 0 0 -75px yellow,
+                          200px 0 0 -75px yellow,
+                          350px 0 0 -75px yellow,
+                          500px 0 0 -75px yellow,
+                          650px 0 0 -75px yellow;
+              }
+          }
+          @keyframes move2{
+              50%{
+                  transform: rotate(0deg);
+              }
+              100%{
+                  transform: rotate(45deg);
+              }
+          }
+          @keyframes move1{
+              50%{
+                  transform: rotate(0deg);
+              }
+              100%{
+                  transform: rotate(-45deg);
+              }
+          }
+      </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="pic-man"></div>
+        </div>
+    </body>
+</html>

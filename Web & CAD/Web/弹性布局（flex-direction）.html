@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>响应式网页</title>
+    <style>
+        p {
+            /*设置外边距为10px*/
+            margin: 10px;
+        }
+
+        #row {
+            display: flex;
+            /*左对齐*/
+            flex-direction: row;
+            background-color: aqua;
+        }
+
+        #row-reverse {
+            display: flex;
+            /*右对齐（从右往左输出）*/
+            flex-direction: row-reverse;
+            background-color: blue;
+        }
+
+        #column {
+            display: flex;
+            /*纵向排列*/
+            flex-direction: column;
+            background-color: blanchedalmond;
+        }
+
+        #column-reverse {
+            display: flex;
+            /*从下往上纵向排列*/
+            flex-direction: column-reverse;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="row">
+        <p>段落1</p>
+        <p>段落2</p>
+    </div>
+    <div id="row-reverse">
+        <p>段落1</p>
+        <p>段落2</p>
+    </div>
+    <div id="column">
+        <p>段落1</p>
+        <p>段落2</p>
+    </div>
+    <div id="column-reverse">
+        <p>段落1</p>
+        <p>段落2</p>
+    </div>
+</body>
+
+</html>

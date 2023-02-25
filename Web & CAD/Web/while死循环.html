@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <button onclick="fun()">点我一下，该网站将在几秒内卡崩</button>
+    <div></div>
+    <script src="jQuery.js"></script>
+    <script>
+        function fun() {
+            while (true) {
+                $("div").text("死循环")
+            }
+        }
+    </script>
+</body>
+
+</html>

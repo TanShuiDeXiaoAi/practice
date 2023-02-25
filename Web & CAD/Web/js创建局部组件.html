@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>js创建局部组件</title>
+</head>
+
+<body>
+    <div>
+        <app></app>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+    <script>
+        //创建一个变量来储存组件模板
+        var runoobA = {
+            template: '<h1>自定义组件!</h1>'
+        }
+        var app = Vue.createApp({
+            components: {
+                "app": runoobA
+            }
+        })
+        app.mount("div")
+    </script>
+</body>
+
+</html>

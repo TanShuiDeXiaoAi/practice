@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>弹性容器（align-self）</title>
+    <meta charset="utf-8">
+    <style>
+        #container{
+            width:500px;
+            height:500px;
+            background-color:aqua;
+            display:flex;
+        }
+        #items1{
+            width:100px;
+            height:100px;
+            display:flex;
+            /*设置自身元素在弹性容器中的位置*/
+            /*align-self是设置在纵轴上的位置*/
+            align-self:flex-start;
+            background-color:coral;
+        }
+        #items2{
+            width:100px;
+            height:100px;
+            display:flex;
+            /*设置自身元素在弹性容器中的位置*/
+            /*align-self是设置在纵轴上的位置*/
+            align-self:center;
+            background-color:coral;
+        }
+        #items3{
+            width:100px;
+            height:100px;
+            display:flex;
+            /*设置自身元素在弹性容器中的位置*/
+            /*align-self是设置在纵轴上的位置*/
+            align-self:flex-end;
+            background-color:coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="items1">items1</div>
+        <div id="items2">items2</div>
+        <div id="items3">items2</div>
+    </div>
+</body>
+
+</html>

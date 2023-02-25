@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>component</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--使用组件-->
+        <component></component>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+
+    <script>
+        //创建一个vue实例
+        var app = Vue.createApp({})
+        //注册一个component组件
+        //语法：vue.component("Component name",{template:`code`})
+        app.component("component", {
+            //template使用反引号`
+            template: `<h1>Hello Vue_component</h1>`
+        })
+        app.mount("#app")
+    </script>
+</body>
+
+</html>

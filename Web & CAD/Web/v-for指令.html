@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>v-for指令</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="div">
+        <!--使用for循环遍历site中的内容-->
+        <!--和原生js的for循环用法差不多-->
+        <div v-for="items in site">
+            <!--使用items来一个个索引site中的text值-->
+            {{items.text}}
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+    <script>
+        //创建一个vue实例
+        Vue.createApp({
+            //使用data储存
+            data() {
+                return {
+                    //创建一个site来储存数组
+                    site: [
+                        //每个数组的值弄个对象包起来
+                        {
+                            text: "Google"
+                        },
+                        {
+                            text: "Baidu"
+                        },
+                        {
+                            text: "Sougou"
+                        }
+                    ]
+                }
+            }
+        }).mount("#div")
+    </script>
+</body>
+
+</html>

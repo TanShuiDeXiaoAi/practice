@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>splice数组修改</title>
+</head>
+
+<body>
+    <script>
+        //splice方法语法：element.splice(要修改的数据起始位置的索引下标，要修改数据的长度，更改的内容)
+
+        function splice1() {
+            var array = [1, 2, 3, 4, 5, 6]
+            //没有更改，直接输出数组
+            document.write(array + "<br>")
+        }
+
+        function splice2() {
+            var array = [1, 2, 3, 4, 5, 6]
+            //现在删除第一个数字再输出
+            array.splice(0, 1)
+            document.write(array + "<br>")
+        }
+
+        function splice3() {
+            var array = [1, 2, 3, 4, 5, 6]
+            //把2，3，4，5替换成5，4，3，2
+            array.splice(1, 4, 5, 4, 3, 2)
+            document.write(array + "<br>")
+        }
+
+        function splice4() {
+            var array = [1, 2, 3, 4, 5, 6]
+            //删除2，3，4，5
+            array.splice(1, 4)
+            document.write(array + "<br>")
+        }
+        splice1()
+        splice2()
+        splice3()
+        splice4()
+    </script>
+</body>
+
+</html>

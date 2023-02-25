@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+    <title>无标题</title>
+    <script>
+    function getDay(){
+        var x;
+        var d= new Date().getDay();//实例化对象
+    switch (d){
+    case 6:x="今天又是愉快的周末";
+    break;
+    case 0:x="今天又是愉快的周末";
+    break;
+    default:x="今天不是周末";
+    
+}
+document.getElementById("content").innerHTML=x;
+}
+</script>
+  </head> 
+  <body>
+  <button id="getDay" onclick="getDay()">点我</button>
+  <p id="content"></p>
+  </body>
+</html>

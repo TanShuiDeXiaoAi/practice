@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>动态柱状图表</title>
+    <meta charset="utf-8">
+    <style>
+        #container {
+            height: 300px;
+            background-color: blue;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .items {
+            width: 50px;
+            height: 100px;
+            background-color: red;
+            margin-left: 10px;
+        }
+
+        .dataContainer {
+            width: 605px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            display: inline;
+            /*将.dataContainer改为行内元素*/
+        }
+
+        .dataItems {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="items" id="items1"></div>
+        <div class="items" id="items2"></div>
+        <div class="items" id="items3"></div>
+        <div class="items" id="items4"></div>
+        <div class="items" id="items5"></div>
+        <div class="items" id="items6"></div>
+        <div class="items" id="items7"></div>
+        <div class="items" id="items8"></div>
+        <div class="items" id="items9"></div>
+        <div class="items" id="items10"></div>
+    </div>
+    <div class="dataContainer">
+        <input class="dataItems" id="dataItems1">
+        <input class="dataItems" id="dataItems2">
+        <input class="dataItems" id="dataItems3">
+        <input class="dataItems" id="dataItems4">
+        <input class="dataItems" id="dataItems5">
+        <input class="dataItems" id="dataItems6">
+        <input class="dataItems" id="dataItems7">
+        <input class="dataItems" id="dataItems8">
+        <input class="dataItems" id="dataItems9">
+        <input class="dataItems" id="dataItems10">
+    </div>
+    <span><input type="button" value="生成图表" id="button"></span>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $("#button").click(function () {
+            var dataItems1 = document.getElementById("dataItems1").value;
+            var height=parseInt($("#dataItems1").val());
+            if (dataItems1 == "") {
+                $("#items1").css("height", "0px")
+            } else {
+                $("#items1").css("height","100px")
+            }
+        })
+    </script>
+</body>
+
+</html>

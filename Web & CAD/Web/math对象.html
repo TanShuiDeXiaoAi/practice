@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+      <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+      <script>
+      $(document).ready(function (){
+      var round=Math.round(4.5)//四舍五入
+      var random=Math.random()*10+40//random()*(max-min)+min 40到50中取随机数
+      document.getElementById("round").innerHTML="4.5四舍五入后是：" + round;
+      document.getElementById("random").innerHTML="从40到50之间取随机数：" + random;
+      })
+      </script>
+    </head> 
+    <body>
+   <p id="round"></p>
+   <p id="random"></p>
+    </body>
+</html>

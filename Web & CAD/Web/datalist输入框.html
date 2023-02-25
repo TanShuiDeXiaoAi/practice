@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>datalist输入框</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <input list="datalist" class="datalist">
+    <datalist id="datalist">
+        <option value="Safari"></option>
+        <option value="Firefox"></option>
+        <option value="Google"></option>
+        <option value="Edge"></option>
+    </datalist>
+    <input type="submit" onclick="x()">
+    <script>
+        function x() {
+            if (document.getElementsByClassName("datalist")[0].value == "") {
+                alert("请输入内容")
+            } else {
+                alert("提交成功");
+            }
+        }
+    </script>
+</body>
+
+</html>

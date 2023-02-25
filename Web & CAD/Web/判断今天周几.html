@@ -1,0 +1,44 @@
+<!doctype html>
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"> 
+		<title>复习</title> 
+	 	<script>
+			function getDay(){
+				var y;
+				var x=new Date().getDay();//实例化对象
+				switch (x){
+					case 0:
+					y="今天是周日";
+					break;
+					case 1:
+					y="今天是周1";
+					break;
+					case 2:
+					y="今天是周2";
+					break;
+					case 3:
+					y="今天是周3";
+					break;
+					case 4:
+					y="今天是周4";
+					break;
+					case 5:
+					y="今天是周5";
+					break;
+					case 6:
+					y="今天是周6";
+					break;
+				}
+				document.getElementById("showDay").innerHTML=y;
+			}
+		</script> 
+	</head> 
+	<body>
+    <button onclick="getDay()">今天星期几？</button> 
+		<p id="showDay"></p>  
+     
+	</body>
+</html>

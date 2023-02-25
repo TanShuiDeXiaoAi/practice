@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS Animate</title>
+    <meta charset="UTF-8">
+    <style>
+        h2:hover {
+            cursor: default;
+        }
+
+        div {
+            width: 10%;
+            height: 10%;
+            font-size: 20px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes divCss {
+            50% {
+                margin-left: 100%;
+            }
+
+            100% {
+                margin-left: 0px;
+            }
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Click me to show the animate</h2>
+    <div>Animate</div>
+    <script>
+        $("h2").click(function () {
+            $("div").css(
+                "animation", "divCss 2s"
+            )
+            //设置延时关闭动画
+            setTimeout(function(){$("div").css("animation","")},2000)
+        })
+    </script>
+</body>
+
+</html>

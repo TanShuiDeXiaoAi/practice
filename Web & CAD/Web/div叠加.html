@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>div叠加</title>
+    <meta charset="utf-8">
+    <style>
+        #div1 {
+            /*定义宽高*/
+            width: 100px;
+            height: 100px;
+            /*定义背景颜色*/
+            background-color: aqua;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(149, 0, 255);
+            /*设置绝对定位*/
+            /*absolute fixed绝对定位，relative相对于父元素的定位*/
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--创建两个div容器-->
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+
+</html>

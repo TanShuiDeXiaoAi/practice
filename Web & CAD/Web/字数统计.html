@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #input {
+            overflow: auto;
+            resize: none;
+            /*禁止用户拖动文本框*/
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button").click(function () {
+                var input = $("#input").val();//获取input的值
+                //总字符的长度
+                document.getElementById("result").append("总字符长度为：" + input.length+"\n");
+                //数字的长度
+                document.getElementById("result").append(input.match(/\d+/));
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <textarea id="input" cols="30" rows="10"></textarea><br>
+    <input type="button" id="button" value="统计">
+    <div>
+        <p id="result"></p>
+    </div>
+    <!--输入框提取的数字在这-->
+    <div id="number"></div>
+</body>
+
+</html>

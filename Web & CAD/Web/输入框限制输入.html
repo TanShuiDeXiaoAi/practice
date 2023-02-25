@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+      <style>
+      .input{
+          height: 30px;
+          }
+          .submit{
+              height: 35px;
+              }
+              .err{
+                  color: red;
+                  }
+                  p{
+                      font-size: 16px;
+                      }
+                  .suc{
+                      color: #00cc00;
+                      }
+      </style>
+      <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+      <script>
+      $(document).ready(function (){
+       $("#submitNumber").click(function (){
+    var valInputNumber=document.getElementById("inputNumber").value;
+    try{
+        if (valInputNumber=="") throw "请输入内容!"//当没有输入时提示
+        if (isNaN(valInputNumber)){
+         throw "检测到非数字，请输入纯数字!"//检测是否为数字
+         }else{
+              if (valInputNumber<0 || valInputNumber>10) {//检测输入的范围
+                 throw "请输入1～10之间的数字"
+                }else{
+                            document.getElementById("numSuccess").innerHTML="Input1 successful:验证成功!"
+                            document.getElementById("numErr").innerHTML=""
+                        }
+             }
+       
+        }
+        catch(errorInputNumber){
+            document.getElementById("numSuccess").innerHTML=""
+            document.getElementById("numErr").innerHTML="Input1 error："+errorInputNumber;
+            }
+            
+})
+  $("#submitString").click(function (){
+    var valInputString=document.getElementById("inputString").value;
+    try{
+        if (valInputString=="") throw "请输入内容!"//当没有输入时提示
+        if(isNaN(valInputString)){
+            document.getElementById("strSuccess").innerHTML="Input2 successful:验证成功"
+            document.getElementById("strErr").innerHTML=""
+            }else{
+    throw "检测到非字符串，请输入字符串"
+}
+                }
+        catch(errorInputString){
+            document.getElementById("strSuccess").innerHTML=""
+            document.getElementById("strErr").innerHTML="Input2 error："+errorInputString
+            }
+})
+
+   $("#submitLimit").click(function (){
+    var valInputLimit=document.getElementById("inputLimit").value;
+    try{
+        if (valInputLimit=="") throw "请输入内容!"//当没有输入时提示
+        if (valInputLimit=="Hello JS"){//检测是否为特定字符串
+            document.getElementById("limitSuccess").innerHTML="Input3 successful:验证成功"
+            document.getElementById("limitErr").innerHTML=""
+            }else{
+                throw "请输入特定字符串!"
+                }
+        }
+        catch(errorInputLimit){
+            document.getElementById("limitSuccess").innerHTML=""
+         document.getElementById("limitErr").innerHTML="Input3 error："+errorInputLimit
+            }
+            
+})
+})
+      </script>
+    </head> 
+    <body>
+   <table>
+   <tr>
+   <td>请输入0到10之间的数字：</td>
+   <td><input id="inputNumber" class="input"></td>
+   <td><input id="submitNumber"  class="submit"type="submit"></td>
+   </tr>
+   <tr>
+   <td>请输入字符串：</td>
+   <td><input id="inputString" class="input" type="text"></td>
+   <td><input id="submitString" class="submit"type="submit"></td>
+   </tr>
+    <tr>
+   <td>请输入字符串"Hello JS":</td>
+   <td><input id="inputLimit" class="input"></td>
+   <td><input id="submitLimit" class="submit"type="submit"></td>
+   </tr>
+   </table>
+   <strong><p id="numErr" class="err"></p></strong>
+   <strong><p id="numSuccess" class="suc"></p></strong>
+   <strong><p id="strErr" class="err"></p></strong>
+   <strong><p id="strSuccess" class="suc"></p></strong>
+   <strong><p id="limitErr" class="err"></p></strong>
+   <strong><p id="limitSuccess" class="suc"></p></strong>
+    </body>
+</html>

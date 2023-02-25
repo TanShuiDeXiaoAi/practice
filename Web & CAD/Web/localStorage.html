@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="setItemContainer">
+        <span>选择你要存储的字符串：</span>
+        <span><input id="setItem"></span>
+        <!--定义一个按钮来储存值-->
+        <button type="submit" id="submit">提交</button>
+    </div>
+    <br>
+
+    <div id="getItemContainer">
+        <!--定义一个按钮来显示储存的值-->
+        <input type="button" value="点击显示存储的内容" id="getValue">
+        <!--弄一个放返回数据的容器-->
+        <div id="getLocalStorage"></div>
+    </div>
+    <!--引入jq库-->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $("#submit").click(function() {
+            //获取元素
+            var inputName = document.getElementById("setItem").value;
+            //设置本地储存
+            localStorage.setItem("inputName", inputName)
+            //调用本地储存进行判断值
+            if (localStorage.getItem("inputName") == "") {
+                alert("输入框无值或保存失败！")
+            } else {
+                alert("保存成功！")
+            }
+        })
+        $("#getValue").click(function() {
+            //获取本地储存的内容
+            var getlocalStorage = localStorage.getItem("inputName")
+            //将得到的内容更换到#getLocalStorage
+            document.getElementById("getLocalStorage").innerHTML = getlocalStorage;
+        })
+    </script>
+</body>
+
+</html>

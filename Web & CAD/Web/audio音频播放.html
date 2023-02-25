@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>audio音频播放</title>
+</head>
+
+<body>
+    <audio src="audio/牵丝戏.mp3" controls> </audio><!--使用controls显示音频控件-->
+    <br>
+    <!--使用按钮来控制音频播放和暂停-->
+    <button onclick="play()">播放/暂停</button>
+    <audio src="audio/牵丝戏.mp3" id="audio" loop></audio><!--loop循环播放-->
+    <script>
+        var audio = document.getElementById("audio")
+        function play() {
+            if (audio.paused) {//判断是不是暂停状态
+                audio.play()
+            } else {
+                audio.pause()
+            }
+        }
+    </script>
+</body>
+
+</html>

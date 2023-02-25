@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>v-model指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        input{
+            width:350px;
+            height:40px;
+            font-size:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!--创建一个input，使用户输入的信息实时渲染到下方的p-->
+        <input v-model="message" placeholder="输入的东西会实时渲染到下方的文本框">
+        <!--创建一个p来实时接收用户输入的数据-->
+        <p>{{message}}</p>
+    </div>
+    <script>
+        //创建一个Vue实例
+        new Vue({
+            //将其绑定到#container
+            el:"#container",
+            //定义数据
+            data:{
+                message:""
+            }
+        })
+    </script>
+</body>
+
+</html>

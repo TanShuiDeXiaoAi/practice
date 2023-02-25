@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>js轮播图</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;                /*清除列表样式*/
+            }
+            img{
+                width: 100%;
+            }
+            .box{
+                position: relative;                /*设置定位*/
+                width: 1920px;
+                height: 1080px;
+                margin: 100px auto;
+                overflow: hidden;                  /*隐藏溢出的内容*/
+            }
+            .list-image{
+                width: 800%;                       /*设置足够长元素宽度*/
+                height: 100%;
+                transition: all .6s ease-in-out;   /*设置轮播图过渡时间和属性*/
+            }
+            .list-image>li{                        /*让图片从左到右依次排列*/
+                float: left;
+                width: 1920px;
+                height: 1080px;
+            }
+            .list-circle{                          /*设置透明小球内容*/
+                position: absolute;
+                width: 280px;
+                height: 40px;
+                left: 820px;                       /*使得透明小球在中下位置*/
+                bottom: 20px;
+            }
+            .list-circle>li{
+                float: left;
+                width: 20px;
+                height: 20px;
+                margin: 10px;
+                border-radius: 50%;
+                background-color: rgba(0,0,0,0.4);
+            }
+            .obt{                                /*设置左右两个按钮样式*/
+                position: absolute;
+                width: 70px;
+                height: 100%;
+                top: 0;
+                color: white;
+                font-size: 60px;
+                text-align: center;
+                line-height: 1080px;
+                background-color: rgba(0,0,0,0.3);
+            }
+            .obt:hover{                        /*更改鼠标碰到左右按钮的变化*/
+                font-size: 150px;
+            }
+            .obt:nth-child(3){
+                left: 0;
+            }
+            .obt:nth-child(4){
+                right: 0;
+            }
+        </style>
+        <script>
+             window.onload=function (){
+                var olist = document.getElementsByClassName("list-image")[0];
+                var ocircle = document.getElementsByClassName("circle");
+                var obtn = document.getElementsByClassName("obt");
+                var img_width = olist.children[0].children[0].offsetWidth;        //获取一张图片的宽度
+                var w = img_width*(olist.children.length-1);                      //获得所有图片总长
+                var index=0;
+                var timer;
+                var num=0;
+                ocircle[0].style.backgroundColor="rgba(255,255,255,1)";           //默认第一张图片的小球
+                timer=setInterval(function (){                                    //设置轮播定时器
+                    if (num<=-w){
+                        index=-1;
+                        num=img_width;
+                    }
+                    index++;
+                    num-=img_width;
+                    moveImg(num,index);   
+                },2000);
+                for(let i=0;i<ocircle.length;i++){                                 //给每个透明小球添加点击事件
+                    ocircle[i].onclick=function (){
+                        index=i;
+                        num=-index*img_width;
+                        moveImg(num,index);
+                    }
+                }
+                obtn[0].onclick=function (){                                        //给左右两个按钮添加点击事件
+                    num+=img_width;
+                    index--;
+                    if (num>0){
+                        num=-w;
+                        index=ocircle.length-1;
+                    }
+                    moveImg(num,index);
+                }
+                obtn[1].onclick=function (){
+                    if (num==-w){
+                        num=img_width;
+                        index=-1;
+                    }
+                    num-=img_width;
+                    index++;
+                    moveImg(num,index);
+                }
+                function clearColor(){
+                    for(let j=0;j<ocircle.length;j++){
+                        ocircle[j].style.backgroundColor="rgba(0,0,0,0.4)";
+                    }
+                }
+                function moveImg(n,index){                                            //更改小球颜色，更改图片位置
+                    clearColor();
+                    olist.style.transform="translateX("+n+"px)";
+                    ocircle[index].style.backgroundColor="rgba(255,255,255,1)";
+                }
+            }
+        </script>
+    </head> 
+    <body> 
+        <div class="box">
+            <ul class="list-image">
+                <li><img src="image/1.jpg"></li>
+                <li><img src="image/2.jpg"></li>
+                <li><img src="image/3.jpg"></li>
+                <li><img src="image/4.jpg"></li>
+                <li><img src="image/5.jpg"></li>
+                <li><img src="image/6.png"></li>
+                <li><img src="image/7.jpg"></li>
+            </ul>
+            <ul class="list-circle">
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+            </ul>
+            <div class="obt"><</div>                                    <!--左边按钮-->
+            <div class="obt">></div>                                    <!--右边按钮-->
+        </div>
+    </body>
+</html>

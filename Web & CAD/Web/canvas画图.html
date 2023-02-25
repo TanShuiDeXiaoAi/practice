@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>canvas画图</title>
+    <meta charset="utf-8">
+    <style>
+        #container {
+            display: flex;
+        }
+
+        .canvas {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <span class="canvas">
+            <div>看，这有一个矩形！</div>
+            <canvas id="rect" width="200px" height="200px" style="border:2px solid black;"></canvas>
+        </span>
+        <span class="canvas">
+            <div>看，这有一个叉！</div>
+            <canvas id="line" width="200px" height="200px" style="border:2px solid black;"></canvas>
+        </span>
+        <span class="canvas">
+            <div>看，这有一个圆形！</div>
+            <canvas id="arc" width="200px" height="200px" style="border:2px solid black;"></canvas>
+        </span>
+    </div>
+    <script>
+        //画一个矩形
+        var rect = document.getElementById("rect") //获取画布
+        var rectContext = rect.getContext("2d") //为画布创建getContext对象
+        rectContext.fillStyle = "#ff0000" //设置图形的样式
+        rectContext.fillRect(0, 0, 200, 200) //设置图形的形状，大小，位置
+        //路径-线条
+        var line = document.getElementById("line")
+        var lineContext = line.getContext("2d")
+        lineContext.moveTo(0, 0)
+        lineContext.lineTo(200, 200)
+        lineContext.stroke()
+        lineContext.moveTo(0, 200)
+        lineContext.lineTo(200, 0)
+        lineContext.stroke()
+        //路径-圆弧
+        var arc = document.getElementById("arc")
+        var arcContext = arc.getContext("2d")
+        arcContext.beginPath()
+        //各参数：（圆心的x轴，圆心的y轴，半径，圆弧开始的弧度，圆弧结束的弧度，false逆时针true顺时针）
+        arcContext.arc(40, 40, 40, 0, 2 * Math.PI, true)
+        arcContext.stroke()
+    </script>
+</body>
+
+</html>

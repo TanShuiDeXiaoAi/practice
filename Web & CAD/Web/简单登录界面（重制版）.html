@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+      <style>
+      table{
+          background-color:#CCFF99;
+          margin:auto;
+          }
+          div{
+              margin: 0auto;
+              text-align: center;
+              }
+          .err{
+              color: red;
+              }
+              .suc{
+                  color: green;
+                  }
+                  p{
+                      text-align: center;
+                      }
+      </style>
+      <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+      <script>
+      $(document).ready(function (){
+    $("#submit").click(function (){
+    var user=document.getElementById("userInput").value;
+    if(user==""){
+       document.getElementById("userErr").innerHTML="请输入用户名!";
+        }else{
+    document.getElementById("userSuccess").innerHTML="用户名提交成功!";
+    document.getElementById("userErr").innerHTML=""
+    
+}
+        
+})
+$("#submit").click(function (){
+    var pass=document.getElementById("passInput").value;
+    if(pass==""){
+       document.getElementById("passErr").innerHTML="请输入密码!";
+        }
+        else{
+    document.getElementById("passSuccess").innerHTML="密码提交成功!";
+    document.getElementById("passErr").innerHTML=""
+}
+if (pass.length>12){
+    document.getElementById("passErr").innerHTML="密码过长，请输入≤12位的密码"
+    document.getElementById("passSuccess").innerHTML=""
+}
+})
+$("#reset").click(function (){
+    document.getElementById("userInput").value=""
+    document.getElementById("passInput").value=""
+    document.getElementById("userErr").innerHTML=""
+    document.getElementById("passErr").innerHTML=""
+    document.getElementById("userSuccess").innerHTML=""
+    document.getElementById("passSuccess").innerHTML=""
+})
+})
+      </script>
+    </head> 
+    <body> 
+   <div>
+   <img src="image/login.jpg" alt="图片无法显示">
+   </div>
+   <table border="1">
+    <tr>
+    <td>用户名：</td>
+    <td><input type="text" id="userInput"></td>
+    </tr>
+     <tr>
+     <td>密码:</td>
+     <td><input type="password" id="passInput"></td>
+     </tr>
+      <tr>
+      <td>&nbsp</td>
+      <td>
+      <input type="submit" id="submit">
+      <input type="reset" id="reset">
+      </td>
+      </tr>
+   </table>
+   <strong><p id="userErr" class="err"></p></strong>
+     <strong><p id="userSuccess" class="suc"></p></strong>
+   <strong><p id="passErr" class="err"></p></strong>
+     <strong><p id="passSuccess" class="suc"></p></strong>
+    </body>
+</html>

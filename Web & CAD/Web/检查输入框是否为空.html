@@ -1,0 +1,44 @@
+<html>
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+  <style>
+      p{
+          color:red;
+          text-align:center;
+          }
+      </style> 
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> 
+  <script>
+      function err(){
+    try{//测试错误的代码块
+        var x=document.getElementById("input").value;
+        if (x=="") throw "请输入名字";//自定义错误
+        else{
+    alert("提交成功！")
+}
+        }
+        catch(err){//解决上方try中错误代码块的代码
+            document.getElementById("result").innerHTML="ERROR："+err;
+            }
+}
+      </script> 
+ </head> 
+ <body id="v1" style=""> 
+  <table id="v2"> 
+   <!--表格排版--> 
+   <tbody> 
+    <tr id="v3"> 
+     <td id="v4">输入名字：</td> 
+     <td id="v5"><input id="input" style="height:25px;"></td> 
+    </tr> 
+    <tr id="v6"> 
+     <td id="v7">点击右侧按钮提交：</td> 
+     <td id="v8"> <input type="submit" id="submit" onclick="err()"> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <strong id="v9"><p id="result"></p></strong>
+  <strong><p id="result"></p></strong>  
+ </body>
+</html>

@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #2ECCFA;
+        }
+
+        #divMain {
+            width: 300px;
+            background-color: white;
+            margin: auto;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.8);
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .input {
+            height: 25px;
+            border-radius: 3px;
+            border-width: 1px;
+            border-color: #EAECF0;
+            border-style: solid;
+        }
+
+        #login {
+            background-color: #409EFF;
+        }
+
+        #reset {
+            background-color: #E6A23C;
+
+        }
+
+        #register {
+            background-color: #0095ff;
+
+        }
+
+        #register:hover {
+            cursor: default;
+            background-color: #0073ff;
+        }
+
+        .button {
+            height: 30px;
+            width: 45px;
+            border-style: none;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .button:hover {
+            cursor: pointer;
+        }
+
+        /*利用三个div，调整他们在父元素中的比例*/
+        #button {
+            display: flex;
+        }
+
+        .button-left-none {
+            flex: 1;
+        }
+
+        .button-center {
+            flex: 1.5;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-right-none {
+            flex: 1;
+        }
+
+        /*modal styles*/
+        #modal {
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            padding-top: 230px;
+        }
+
+        #modalMain {
+            width: 30%;
+            height: 12%;
+            background-color: white;
+            margin: auto;
+            border-radius: 20px;
+        }
+
+        #modalClose {
+            width: 18px;
+            height: 18px;
+            float: right;
+            margin-right: 15px;
+            margin-top: 10px;
+            background-color: rgb(252, 44, 44);
+            border-radius: 180px;
+        }
+
+        #modalClose:hover {
+            cursor: pointer;
+        }
+
+        #modalText {
+            position: absolute;
+            font-size: 25px;
+            margin-top: 44px;
+            margin-left: 15px;
+            font-weight: bold;
+            color: red;
+        }
+
+        /*手机自适应*/
+        @media screen and (max-width:980px) {
+            #modalMain {
+                width: 70%;
+            }
+
+            #modalText {
+                font-size: 23px;
+            }
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var passLengthText = "密码长度应大于5且小于12位"
+            var accountOrPassFailed = "账号或密码不正确"
+            //登录按钮脚本
+            $("#login").click(function () {
+                var userInputVal = $("#userInput").val()
+                var passInputVal = $("#passInput").val()
+
+                if (userInputVal == "" || passInputVal == "") {
+                    //显示"请输入账号或密码"模态框
+                    $("#modal").css("display", "block")
+                    $("#modalText").append("请输入账号或密码");
+                    $("#modalText").css("color", "rgb(225,0,0)")
+                } else {
+                    if (passInputVal.length > 12 || passInputVal.length < 5) {
+                        //显示"密码长度应大于5且小于12位"模态框
+                        //检测屏幕大小 width<980 手机端适应
+                        if (window.innerWidth < 980) {
+                            //创建一个数组把字符串分开
+                            var passLengthTextArray = ["密码长度应大于5","且小于12位"]
+                            //加个br换行
+                            passLengthTextArray.splice(1,0,"<br>")
+                            $("#modalMain").css("height","18%")
+                            $("#modal").css("display", "block")
+                            $("#modalText").append(passLengthTextArray);
+                            $("#modalText").css("color", "rgb(225,0,0)")
+                        } else {
+                            //电脑端直接显示
+                            $("#modal").css("display", "block")
+                            $("#modalText").append(passLengthText);
+                            $("#modalText").css("color", "rgb(225,0,0)")
+                        }
+                    } else {
+                        //判断输入的用户名和密码是否与本地储存的注册信息匹配
+                        if (userInputVal == localStorage.getItem("userName") && passInputVal == localStorage.getItem("pass")) {
+                            $("#modal").css("display", "block")
+                            $("#modalText").append("登录成功");
+                            $("#modalText").css("color", "rgb(54, 196, 35)");
+                        } else {
+                            //懒得创建，直接用内置账号
+                            if (userInputVal == "administrator" && passInputVal == "00000000") {
+                                $("#modal").css("display", "block")
+                                $("#modalText").append("登录成功");
+                                $("#modalText").css("color", "rgb(54, 196, 35)");
+                            } else {
+                                $("#modal").css("display", "block")
+                                $("#modalText").append(accountOrPassFailed);
+                                $("#modalText").css("color", "rgb(225, 0, 0)");
+                            }
+                        }
+                    }
+                }
+            })
+
+
+            //关闭按钮脚本
+            $("#modalClose").click(function () {
+                //获取modalText的文本值
+                var modalTextVal = $("#modalText").text()
+                console.log("提示框显示信息为：" + modalTextVal)
+                //恢复modalMain的高度
+                $("#modalMain").css("height","12%")
+                //清空modalText子元素中内容
+                $("#modalText").empty()
+                //如果显示"密码长度应大于5且小于12位"||"账号或密码不正确"，清空密码框内容
+                if (modalTextVal == passLengthText || modalTextVal == accountOrPassFailed) {
+                    $("#passInput").val("")
+                    $("#modal").css("display", "none")
+                } else {
+                    $("#modal").css("display", "none")
+                }
+                //控制台输出输入框的值(调试用)
+                if ($("#userInput").val() == "" && $("#passInput").val() != "") { //User无值，Pass有值
+                    console.log("User:no value\n" + "Password:" + $("#passInput").val())
+                }
+                if ($("#userInput").val() != "" && $("#passInput").val() == "") { //User有值，Pass无值
+                    console.log("User:" + $("#userInput").val() + "\nPassword:no value")
+                }
+                if ($("#userInput").val() == "" && $("#passInput").val() == "") { //User和Pass均无值
+                    console.log("User:no value" + "\nPassword:no value")
+                }
+                if ($("#userInput").val() != "" && $("#passInput").val() != "") { //User和Pass均有值
+                    console.log("User:" + $("#userInput").val() + "\nPassword:" + $("#passInput").val())
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="divMain">
+        <table align="center">
+            <br>
+            <tr>
+                <h3><strong>登录</strong></h3>
+            </tr>
+            <tr>
+                <td>账号&nbsp&nbsp</td>
+                <td><input id="userInput" class="input" placeholder="   请输入账号"></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td>密码</td>
+                <td><input id="passInput" class="input" type="password" placeholder="   请输入密码"></td>
+            </tr>
+        </table>
+        <br>
+        <!--利用三个div，调整他们在父元素中的比例-->
+        <div id="button">
+            <div class="button-left-none"></div>
+            <div class="button-center">
+                <input id="login" type="submit" value="登录" class="button">
+                <input id="register" type="submit" value="注册" class="button button-margin-left"
+                    onclick="javascript:window.location.href = '登录界面(register).html'">
+            </div>
+            <div class="button-right-none"></div>
+        </div>
+        <br>
+    </div>
+    <!--模态框-->
+    <div id="modal">
+        <div id="modalMain">
+            <span id="modalClose"></span>
+            <div id="modalText"></div>
+        </div>
+    </div>
+</body>
+
+</html>

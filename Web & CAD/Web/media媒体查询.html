@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>media媒体查询</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(72, 255, 0);
+        }
+
+        /*使用media媒体查询*/
+        /*语法@media 设备 and (设备限制)*/
+        @media screen and (max-width:980px) {
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: aqua;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>当浏览器可视区域的宽度小于980px时，背景颜色改变为蓝色</p>
+    </div>
+</body>
+
+</html>

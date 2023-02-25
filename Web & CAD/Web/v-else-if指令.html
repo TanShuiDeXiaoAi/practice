@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>v-else-if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            new Vue({
+                el: "#container",
+                data: {
+                    result: 80
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <!--使用v-if做判断-->
+        <!--和原生js的if else差不多-->
+        <div v-if="result>=90">张三的成绩为{{result}}，优秀</div>
+        <div v-else-if="result>=80">张三的成绩为{{result}}，良好</div>
+        <div v-else-if="result=60">张三的成绩为{{result}}，及格</div>
+    </div>
+</body>
+
+</html>

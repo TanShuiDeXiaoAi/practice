@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>v-bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        #changeColor {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!--使用v-bind动态更改该标签的属性值-->
+    <p id="url"><a v-bind:href="url">动态渲染属性</a></p>
+    <div id="setId">
+        <p v-bind:id="color">我会变成红色</p>
+    </div>
+    <script>
+        //创建一个对象赋予给变量url
+        new Vue({
+            //绑定#url元素
+            el: "#url",
+            //定义data数据部分
+            data: {
+                //定义返回值
+                url: "https://baidu.com"
+            }
+        })
+
+        new Vue({
+            el: "#setId",
+            data: {
+                color: "changeColor"
+            }
+        })
+    </script>
+</body>
+
+</html>

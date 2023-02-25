@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>太极图</title>
+      <style>
+          *{
+              margin: 0;
+          }
+          body{
+              background-color: silver;
+          }
+          .box{
+              width: 400px;
+              height: 400px;
+              margin: 200px auto;
+              border:1px solid black;
+              border-radius: 50%;
+              animation: run 1s linear infinite;/*绑定动画run，一次动画时间，匀速，无限次*/
+          }
+            @keyframes run {                    /*定义动画，旋转动画*/
+              100%{
+                  transform: rotate(360deg);
+              }
+          }
+          .box-left{                                /*左边半圆*/
+              float: left;                         /*浮动左边*/
+              width: 50%;
+              height: 100%;
+              border-radius:200px 0 0 200px ;      /*定义边框，让它成为左半圆*/
+              background-color: black;
+          }
+          .box-right{                                /*右边半圆*/
+              float: right;
+              width: 50%;
+              height: 100%;
+              border-radius:0 200px 200px 0;
+              background-color: white;
+          }
+          .box-left:before{                        /*伪类定义阴级小圆*/
+              display: block;
+              content: "";                         /*伪类必要属性*/
+              width: 100%;
+              height: 50%;
+              background-color: black;
+              border-radius: 50%;
+              transform: translate(100px,0);             /*让圆位移，组成阴*/
+          }
+          .box-right:before{                        /*伪类定义阴级小圆*/
+              display: block;
+              content: "";
+              width: 100%;
+              height: 50%;
+              background-color: white;
+              border-radius: 50%;
+              transform: translate(-100px,200px);         /*让圆位移，组成阳*/
+          }
+          .box-left:after{                                /*定义阴中的圆*/
+              display: block;
+              content: "";
+              width: 50px;
+              height: 50px;
+              background-color: white;
+              border-radius: 50%;
+              transform: translate(175px,-125px);
+          }
+          .box-right:after{
+              display: block;
+              content: "";
+              width: 50px;
+              height: 50px;
+              background-color: black;
+              border-radius: 50%;
+              transform: translate(-25px,75px);
+          }
+        
+          </style>
+    </head>
+    <body>
+      <div class="box">
+          <div class="box-left"></div>
+          <div class="box-right"></div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="div">
+        <!--输出30-->
+        <!--插值内可使用单个js表达式-->
+        <p>{{num *6}}</p>
+    </div>
+    <script src="https://cdn.staticfile.org/vue/2.7.0/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#div',
+            data: {
+                num: 5
+            }
+        })
+    </script>
+</body>
+
+</html>
